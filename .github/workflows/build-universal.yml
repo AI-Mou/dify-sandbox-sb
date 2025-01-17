@@ -3,7 +3,7 @@ name: Build And Push Universal
 on:
   push:
     branches:
-      - main
+      - 0.2.10
   release:
     types: [published]
 
@@ -56,7 +56,7 @@ jobs:
         run:
           for tag in $(echo "${{ steps.meta.outputs.tags }}" | tr ',' '\n');
           do
-            docker manifest create $tag $tag-amd64;
+            docker manifest create $tag $tag-amd64 $tag-arm64;
           done
 
       - name: Push Universal Docker Image
