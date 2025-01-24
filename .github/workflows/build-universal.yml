@@ -3,7 +3,7 @@ name: Build And Push Universal
 on:
   push:
     branches:
-      - 0.2.10
+      - 0.2.10-env
   release:
     types: [published]
 
